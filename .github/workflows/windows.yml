@@ -1,4 +1,4 @@
-name: Node.js CI
+name: Windows CI
 
 on:
   push:
@@ -7,9 +7,9 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  install:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Build
-        run: echo "hello"
+      - name: download authproxy
+        run: wget https://dl.duosecurity.com/duoauthproxy-latest.exe
