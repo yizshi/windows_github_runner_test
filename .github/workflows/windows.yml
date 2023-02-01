@@ -11,18 +11,18 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
-      - name: download authproxy
+      - name: Download AuthProxy
         run: Invoke-WebRequest -Uri "https://dl.duosecurity.com/duoauthproxy-latest.exe" -OutFile "duoauthproxy-lastest.exe"
-      - name: Instlal authproxy
+      - name: Instlal AuthProxy
         run: .\duoauthproxy-lastest.exe /S /exclude-auth-proxy-manager
       - name: Copy Config
         run:  Copy-Item .\authproxy.cfg "C:\Program Files\Duo Security Authentication Proxy\conf\"
-      - name: restart authproxy
+      - name: Restart AuthProxy
         run: Start-Process "C:\Program Files\Duo Security Authentication Proxy\bin\authproxyctl.exe" restart
-      - name: restart authproxy
+      - name: Generate Authproxy Support Output
         run: Start-Process "C:\Program Files\Duo Security Authentication Proxy\bin\authproxy_support.exe"
       - name: Archive support tool result
         uses: actions/upload-artifact@v3
         with:
-          name: code-coverage-report
+          name: authproxy-support-tool-output
           path: "C:/Program Files/Duo Security Authentication Proxy/duoauthproxy-support-*.zip"
