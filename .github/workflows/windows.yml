@@ -18,4 +18,4 @@ jobs:
       - name: Copy Config
         run:  Copy-Item .\authproxy.cfg "C:\Program Files\Duo Security Authentication Proxy\conf\"
       - name: restart authproxy
-        run: &'C:\Program Files\Duo Security Authentication Proxy\bin\authproxyctl.exe' restart
+        run: '&"C:\Program Files\Duo Security Authentication Proxy\bin\authproxyctl.exe" restart'
