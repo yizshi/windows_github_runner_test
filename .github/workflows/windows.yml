@@ -16,4 +16,6 @@ jobs:
       - name: Instlal authproxy
         run: .\duoauthproxy-lastest.exe /S /exclude-auth-proxy-manager
       - name: Copy Config
-        run: ls
+        run:  Copy-Item .\authproxy.cfg "C:\Program Files\Duo Security Authentication Proxy\conf\"
+      - name: restart authproxy
+        run: &'C:\Program Files\Duo Security Authentication Proxy\bin\authproxyctl.exe' restart
