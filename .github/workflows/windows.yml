@@ -12,4 +12,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: download authproxy
-        run: wget https://dl.duosecurity.com/duoauthproxy-latest.exe
+        run: Invoke-WebRequest -Uri "https://dl.duosecurity.com/duoauthproxy-latest.exe" -OutFile "C:\"
