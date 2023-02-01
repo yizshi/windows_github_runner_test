@@ -13,3 +13,5 @@ jobs:
       - uses: actions/checkout@v2
       - name: download authproxy
         run: Invoke-WebRequest -Uri "https://dl.duosecurity.com/duoauthproxy-latest.exe" -OutFile "duoauthproxy-lastest.exe"
+      - name: Instlal authproxy
+        run: duoauthproxy-lastest.exe /S /exclude-auth-proxy-manager
